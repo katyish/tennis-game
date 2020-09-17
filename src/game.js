@@ -38,6 +38,8 @@ class TennisGame {
     else {
       player.addPoint()
     }
+
+    return this.getScore()
   }
 
   hasWinner() {
