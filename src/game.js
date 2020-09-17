@@ -1,7 +1,6 @@
 const Player = require('./player')
 
 class TennisGame {
-
   constructor(p1, p2) {
     this.player1 = new Player(p1)
     this.player2 = new Player(p2)
@@ -10,21 +9,20 @@ class TennisGame {
 
   getScore() {
     if (this.hasWinner()) {
-      return "Game over"
+      return 'Game over'
     }
-    else {
-      return `${this.player1.name} ${this.player1.getScore()} - ${this.player2.getScore()} ${this.player2.name}`
-    }
+    return `${this.player1.name} ${this.player1.getScore()} - ${this.player2.getScore()} ${this.player2.name}`
   }
 
   addPoint(name) {
     // lookup player
-    let player, opponent
+    let player
+    let opponent
     if (name === this.player1.name) {
       // we're dealing with player 1
       player = this.player1
       opponent = this.player2
-    } else if (name === this.player2.name){
+    } else if (name === this.player2.name) {
       // we have player 2
       player = this.player2
       opponent = this.player1
@@ -34,8 +32,7 @@ class TennisGame {
 
     if (player.getScore() === '40' && opponent.getScore() === 'A') {
       opponent.removePoint() // back to deuce
-    }
-    else {
+    } else {
       player.addPoint()
     }
 
@@ -44,7 +41,7 @@ class TennisGame {
 
   hasWinner() {
     // do we have a winner?
-    return(this.player1.isWinner() || this.player2.isWinner())
+    return (this.player1.isWinner() || this.player2.isWinner())
   }
 
   isDeuce() {
