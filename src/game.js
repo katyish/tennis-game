@@ -9,7 +9,12 @@ class TennisGame {
   }
 
   getScore() {
-    return `${this.player1.name} ${this.player1.getScore()} - ${this.player2.getScore()} ${this.player2.name}`
+    if (this.hasWinner()) {
+      return "Game over"
+    }
+    else {
+      return `${this.player1.name} ${this.player1.getScore()} - ${this.player2.getScore()} ${this.player2.name}`
+    }
   }
 
   addPoint(name) {

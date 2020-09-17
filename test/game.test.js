@@ -100,5 +100,6 @@ describe('Deuce/Advantage scoring', () => {
     this.game.addPoint('Sarah')
 
     expect(this.game.hasWinner()).to.be.true
+    expect(this.game.getScore()).to.equal("Game over")
   })
 })
